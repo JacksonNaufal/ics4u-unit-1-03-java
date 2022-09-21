@@ -84,6 +84,7 @@ final class MicrowaveHeater {
     *
     * @param args No args will be used
     */
+
     public static void main(final String[] args) {
 
         // identifying the changing variables.
@@ -104,6 +105,7 @@ final class MicrowaveHeater {
         if (userInput.equals(SUB) || userInput.equals(PIZZA)
             || userInput.equals(SOUP)) {
 
+            // gets what item is inputted
             if (userInput.equals(SUB)) {
                 time = SUBTIME;
             } else if (userInput.equals(PIZZA)) {
@@ -113,25 +115,27 @@ final class MicrowaveHeater {
             }
 
             // calcultes time with amount and food
-            if (amountNumber.equals(ONE)) {
-                System.out.println("The time for " + userInput + " is" + time);
-            } else if (amountNumber.equals(TWO)) {
-                time = time * TWOFOOD;
-            } else if (amountNumber.equals(THREE)) {
-                time = time * THREEFOOD;
+            if (amountNumber.equals(ONE) || amountNumber.equals(TWO)
+                || amountNumber.equals(THREE)) {
+                if (amountNumber.equals(TWO)) {
+                    time = time * TWOFOOD;
+                } else if (amountNumber.equals(THREE)) {
+                    time = time * THREEFOOD;
+                }
+                // calculation for setting up time in minutes and seconds
+                seconds = time / SIXTY;
+                minutes = Math.floor(seconds);
+                seconds = (seconds - minutes) * SIXTY;
+                System.out.println("The " + userInput + " will be done in "
+                    + minutes + " minutes " + seconds + " seconds!");
+
+            // catches invalid number input
             } else {
-                System.out.println("Invalid Input!");
+                System.out.println("Invalid Number!");
             }
-
-            // calculation for setting up time in minutes and seconds
-            seconds = time / SIXTY;
-            minutes = Math.floor(seconds);
-            seconds = (seconds - minutes) * SIXTY;
-            System.out.println("The " + userInput + " will be done in "
-                + minutes + " minutes " + seconds + " seconds!");
-
+            // catches invalid word input
         } else {
-            System.out.println("Invalid Input");
+            System.out.println("Invalid Food!");
         }
     }
 }
