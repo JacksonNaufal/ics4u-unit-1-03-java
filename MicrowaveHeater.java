@@ -1,18 +1,18 @@
 /*
 *
-* This is a standared rock, paper, scissors program
-* regular game, regular rules with a try and catch.
+* This is a standared microwave program
+* that will calculate the time it takes for certain foods.
 *
 * @author  Jackson Naufal
 * @version 1.0
-* @since   2020-01-01
+* @since   2020-09-20
 *
-* This is a rock paper scissors program.
+* This is a microwave time program.
 */
 
 import java.util.Scanner;
 /**
- * This is a rock, paper, scissors program.
+ * This is a microwave program.
  */
 
 final class MicrowaveHeater {
@@ -85,23 +85,25 @@ final class MicrowaveHeater {
     * @param args No args will be used
     */
     public static void main(final String[] args) {
-        // identifying the strings.
-        // rock, paper and scissors.
+
+        // identifying the changing variables.
+        // time, minutes, seconds
         double time = 0;
         double minutes = 0;
         double seconds = 0;
 
-        // max number in the Math.Random generator.
+        // This is where you the program recives inputs.
         final Scanner firstInput = new Scanner(System.in);
         final Scanner numberInput = new Scanner(System.in);
         System.out.print("Enter your choice, sub, pizza, or soup: ");
         final String userInput = firstInput.nextLine();
         System.out.print("Enter the amount: ");
         final String amountNumber = numberInput.nextLine();
+
+        // try and catch for invalid or valid inputs.
         if (userInput.equals(SUB) || userInput.equals(PIZZA)
             || userInput.equals(SOUP)) {
 
-            // try and catch for invalid inputs.
             if (userInput.equals(SUB)) {
                 time = SUBTIME;
             } else if (userInput.equals(PIZZA)) {
@@ -109,6 +111,8 @@ final class MicrowaveHeater {
             } else if (userInput.equals(SOUP)) {
                 time = SOUPTIME;
             }
+
+            // calcultes time with amount and food
             if (amountNumber.equals(ONE)) {
                 System.out.println("The time for " + userInput + " is" + time);
             } else if (amountNumber.equals(TWO)) {
@@ -119,6 +123,7 @@ final class MicrowaveHeater {
                 System.out.println("Invalid Input!");
             }
 
+            // calculation for setting up time in minutes and seconds
             seconds = time / SIXTY;
             minutes = Math.floor(seconds);
             seconds = (seconds - minutes) * SIXTY;
