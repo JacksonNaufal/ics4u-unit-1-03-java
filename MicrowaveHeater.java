@@ -137,5 +137,6 @@ final class MicrowaveHeater {
         } else {
             System.out.println("Invalid Food!");
         }
+        System.out.println("\nDone!");
     }
 }
